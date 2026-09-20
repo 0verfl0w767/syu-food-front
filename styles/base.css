@@ -1,0 +1,183 @@
+:root {
+  --ink: #171713;
+  --paper: #f4f0e7;
+  --green: #c9fa64;
+  --naver: #03c75a;
+  --line: rgba(23, 23, 19, 0.15);
+}
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(23, 23, 19, 0.22) transparent;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(23, 23, 19, 0.2);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(23, 23, 19, 0.38);
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+html {
+  scroll-behavior: smooth;
+}
+body,
+html {
+  min-height: 100%;
+}
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+body > main.homePage {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+}
+.routeStatePage {
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  padding: 24px;
+}
+.routeStateCard {
+  display: flex;
+  width: min(440px, 100%);
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--ink);
+  border-radius: 24px;
+  padding: 40px 24px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 8px 0 rgba(23, 23, 19, 0.14);
+}
+.routeStateCard > span {
+  color: var(--green-dark);
+  font-size: 32px;
+  font-weight: 900;
+}
+.routeStateCard h1,
+.routeStateCard p {
+  margin: 0;
+}
+.routeStateCard button,
+.routeStateCard a {
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  padding: 10px 18px;
+  background: var(--green);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+a,
+button {
+  color: inherit;
+  font: inherit;
+}
+a {
+  text-decoration: none;
+}
+.seoIntro {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.placeSection {
+  --section-gap: 16px;
+  --bottom-row-height: 42px;
+  --footer-gutter: 8px;
+  display: flex;
+  height: 100%;
+  min-height: 0;
+  flex-direction: column;
+  overflow: hidden;
+  padding: var(--section-gap) 0 max(var(--footer-gutter), env(safe-area-inset-bottom));
+}
+.menuFinder {
+  width: min(600px, calc(100% - 44px));
+  margin: 0 auto;
+  padding: 4px 0 12px;
+}
+.menuFinder > label {
+  display: block;
+  margin: 0 0 8px 4px;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+.menuSearchField {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  gap: 11px;
+  border: 1px solid var(--ink);
+  border-radius: 16px;
+  padding: 0 16px;
+  background: hsla(0, 0%, 100%, 0.5);
+  box-shadow: 0 5px 0 var(--ink);
+}
+.menuSearchField > span {
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1;
+  transform: rotate(-20deg);
+}
+.menuSearchField input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  color: var(--ink);
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 750;
+}
+.menuSearchField input::placeholder {
+  color: rgba(23, 23, 19, 0.38);
+}
+.menuSearchField input::-webkit-search-cancel-button {
+  display: none;
+}
+.menuSearchField button {
+  width: 29px;
+  height: 29px;
+  flex: none;
+  cursor: pointer;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}

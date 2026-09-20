@@ -1,0 +1,166 @@
+.randomModalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(23, 23, 19, 0.58);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  padding: 20px;
+  animation: fadeIn 0.18s ease-out;
+}
+.randomModal {
+  width: min(390px, calc(100% - 24px));
+  border: 1px solid var(--ink);
+  border-radius: 24px;
+  background: #fff;
+  padding: 26px 24px 22px;
+  box-shadow:
+    0 16px 36px rgba(23, 23, 19, 0.22),
+    0 6px 0 var(--ink);
+  animation: modalScaleUp 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+.randomModalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.randomBadge {
+  display: inline-flex;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(23, 23, 19, 0.07);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+}
+.randomBadge,
+.randomCloseButton {
+  align-items: center;
+  color: var(--ink);
+}
+.randomCloseButton {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(23, 23, 19, 0.06);
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  transition: background-color 0.12s ease;
+}
+.randomCloseButton:hover {
+  background: rgba(23, 23, 19, 0.14);
+}
+.randomModalBody {
+  margin-top: 18px;
+  text-align: center;
+  padding: 18px 14px 16px;
+  background: #fdfbf7;
+  border: 1px solid rgba(23, 23, 19, 0.08);
+  border-radius: 18px;
+}
+.randomSubcategoryTag {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 750;
+  color: #c92a2a;
+  background: rgba(201, 42, 42, 0.09);
+  padding: 3px 9px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.randomMenuName {
+  margin: 0;
+  font-size: 23px;
+  font-weight: 900;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  word-break: keep-all;
+  line-height: 1.35;
+}
+.randomPlaceInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+  color: rgba(23, 23, 19, 0.72);
+  font-size: 13.5px;
+  font-weight: 700;
+}
+.randomPlaceDivider {
+  opacity: 0.35;
+}
+.randomPlaceDistance {
+  color: rgba(23, 23, 19, 0.5);
+  font-weight: 600;
+  font-size: 12.5px;
+}
+.randomModalActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  gap: 10px;
+  margin-top: 18px;
+}
+.randomRerollButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  height: 46px;
+  border: 1px solid var(--ink);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 13.5px;
+  font-weight: 800;
+  box-shadow: 0 3px 0 var(--ink);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.12s ease;
+}
+.randomRerollButton:hover {
+  background: #f8f9fa;
+  transform: translateY(-1px);
+}
+.randomRerollButton:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 var(--ink);
+}
+.randomViewPlaceButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  height: 46px;
+  border: 1px solid var(--ink);
+  border-radius: 14px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 800;
+  box-shadow: 0 3px 0 rgba(23, 23, 19, 0.35);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.12s ease;
+}
+.randomViewPlaceButton:hover {
+  background: #2c2c24;
+  transform: translateY(-1px);
+}
+.randomViewPlaceButton:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 rgba(23, 23, 19, 0.25);
+}

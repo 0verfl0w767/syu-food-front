@@ -1,0 +1,25 @@
+{
+  "name": "후문한끼 - 삼육대학교 후문 맛집 추천",
+  "short_name": "후문한끼",
+  "description": "삼육대학교 후문 400m 이내 맛집과 카페를 가까운 순으로 탐색하는 서비스",
+  "lang": "ko-KR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f0e7",
+  "theme_color": "#c9fa64",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

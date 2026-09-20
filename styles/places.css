@@ -1,0 +1,795 @@
+.categorySwitch,
+.railControls {
+  width: min(1180px, calc(100% - 44px));
+  margin-right: auto;
+  margin-left: auto;
+}
+.categorySwitch {
+  display: flex;
+  flex: none;
+  align-items: stretch;
+  height: 48px;
+  max-width: 440px;
+  gap: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px;
+  margin-bottom: 0;
+  box-sizing: border-box;
+}
+.categorySwitch button {
+  flex: 1 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 0;
+  border-radius: 999px;
+  padding: 0 16px;
+  margin: 0;
+  color: rgba(23, 23, 19, 0.55);
+  background: transparent;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  transition: 0.16s ease;
+  box-sizing: border-box;
+}
+.categorySwitch button.active,
+.categorySwitch button:hover {
+  color: #fff;
+  background: var(--ink);
+}
+.placeRail::-webkit-scrollbar {
+  display: none;
+}
+.placeRail {
+  --place-card-width: min(82vw, 540px);
+  display: flex;
+  flex: 1 1 auto;
+  gap: clamp(14px, 2vw, 24px);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  margin-top: var(--section-gap);
+  padding: 0 calc(50% - (var(--place-card-width) / 2)) 8px;
+  scrollbar-width: none;
+}
+.placeCard,
+.placeRail {
+  position: relative;
+  min-height: 0;
+}
+.placeCard {
+  flex: 0 0 var(--place-card-width);
+  height: 100%;
+  overflow: hidden;
+  scroll-snap-align: center;
+  border-radius: 26px;
+  color: #fff;
+  background: #252820;
+  isolation: isolate;
+}
+.placeCardImage,
+.placeCardShade {
+  position: absolute;
+  inset: 0;
+}
+.placeCardImage {
+  z-index: -2;
+  background-image: var(--place-image);
+  background-position: 50%;
+  background-size: cover;
+  transition: transform 0.5s ease;
+}
+.placeCard:hover .placeCardImage {
+  transform: scale(1.035);
+}
+.placeCard.noImage .placeCardImage {
+  background: linear-gradient(145deg, #263528, #6a7057 52%, #191b17);
+}
+.placeCard.noImage:before {
+  content: 'NO PHOTO';
+  position: absolute;
+  z-index: -1;
+  right: -8px;
+  bottom: 28%;
+  color: hsla(0, 0%, 100%, 0.08);
+  font-size: 80px;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  transform: rotate(-90deg);
+}
+.placeCardShade {
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(8, 10, 7, 0.38), transparent 36%),
+    linear-gradient(0deg, rgba(8, 10, 7, 0.96), rgba(8, 10, 7, 0.05) 76%);
+}
+.placeCardTop {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.placeCardTop span:first-child {
+  border: 1px solid hsla(0, 0%, 100%, 0.45);
+  border-radius: 999px;
+  padding: 8px 11px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.placeCardBody {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: clamp(25px, 5vw, 42px);
+}
+.placeMeta {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 13px;
+}
+.placeMeta span {
+  border-radius: 99px;
+  padding: 6px 9px;
+  color: var(--green);
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 11px;
+  font-weight: 800;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.placeCard h2 {
+  max-width: 460px;
+  margin: 0;
+  font-size: clamp(38px, 7vw, 64px);
+  font-weight: 900;
+  letter-spacing: -0.075em;
+  line-height: 1.02;
+  word-break: keep-all;
+}
+.microReview {
+  width: min(52%, 280px);
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  color: hsla(0, 0%, 100%, 0.76);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.55;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.microReview,
+.visitorReviewTicker {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.visitorReviewTicker {
+  top: 82px;
+  width: min(calc(100% - 48px), 430px);
+}
+.visitorReviewTicker p {
+  margin: 0;
+  border: 1px solid hsla(0, 0%, 100%, 0.2);
+  border-radius: 16px;
+  padding: 14px 17px;
+  color: hsla(0, 0%, 100%, 0.92);
+  background: rgba(8, 10, 7, 0.58);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.55;
+  text-align: center;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.visitorReviewTicker p.rotating {
+  animation: visitorReviewTurn 4.5s ease both;
+}
+@keyframes visitorReviewTurn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  12%,
+  84% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+.reviewRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 13px;
+  margin-top: 18px;
+  color: hsla(0, 0%, 100%, 0.78);
+  font-size: 12px;
+  font-weight: 600;
+}
+.reviewRow .rating {
+  color: #ffd95e;
+  font-weight: 900;
+}
+.address {
+  margin: 14px 0 0;
+  color: hsla(0, 0%, 100%, 0.55);
+  font-size: 12px;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.placeActions {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 12px 18px;
+  margin-top: 25px;
+  padding-top: 19px;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.21);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.placeActions button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 999px;
+  padding: 9px 13px;
+  color: var(--ink);
+  background: var(--green);
+  font-weight: 800;
+}
+.placeActions a:hover,
+.placeActions button:hover {
+  color: var(--green);
+}
+.placeActions button:hover {
+  color: var(--ink);
+  background: #fff;
+}
+.placeActions .viewMenuButton {
+  flex: none;
+  border: 1px solid hsla(0, 0%, 100%, 0.44);
+  padding: 7px 10px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.25);
+}
+.placeActions .viewMenuButton:hover {
+  color: var(--ink);
+  background: var(--green);
+}
+.placeActions .recommendButton {
+  display: inline-flex;
+  height: 24px;
+  min-width: auto;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-left: auto;
+  border: 0;
+  border-radius: 0;
+  padding: 0 0 0 8px;
+  color: #fff;
+  background: transparent;
+  line-height: 1;
+}
+.placeActions .recommendButton svg {
+  display: block;
+  width: 21px;
+  height: 21px;
+  flex: none;
+}
+.placeActions .recommendButton b {
+  display: block;
+  min-width: 1ch;
+  font-size: 12px;
+  font-feature-settings: 'tnum';
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.placeActions .recommendButton.recommended,
+.placeActions .recommendButton:hover {
+  color: #fff;
+  background: transparent;
+}
+.placeActions .recommendButton.recommended svg {
+  color: #ff6170;
+}
+.placeActions .recommendButton:disabled {
+  cursor: default;
+  opacity: 0.58;
+}
+.placeActions .recommendButton.recommended:disabled {
+  opacity: 1;
+}
+
+/* 사이트 소개 카드 (Intro Card) */
+.placeCard.introCard {
+  position: relative;
+  background: #ffffff;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+/* Mock Card (왼쪽 여백을 채우는 뿌연 더미 카드) */
+.mockCard {
+  position: absolute;
+  top: 0;
+  right: calc(100% + clamp(14px, 2vw, 24px));
+  width: 100%;
+  height: 100%;
+  border-radius: 26px;
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.5) 0%, rgba(240, 237, 227, 0.3) 100%);
+  border: none;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: none;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.52;
+  filter: blur(2px);
+  transition:
+    opacity 0.3s ease,
+    filter 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.mockCardInner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: clamp(24px, 4vw, 36px);
+  box-sizing: border-box;
+  gap: 20px;
+}
+
+.mockCardMark {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(23, 23, 19, 0.1);
+}
+
+.mockCardBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.mockTitle {
+  width: 55%;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(23, 23, 19, 0.14);
+}
+
+.mockSub {
+  width: 40%;
+  height: 16px;
+  border-radius: 6px;
+  background: rgba(23, 23, 19, 0.08);
+}
+
+/* Intro Card 내부 */
+.introCardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.introCardBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 50% 25%, rgba(201, 250, 100, 0.38), transparent 62%),
+    radial-gradient(circle at 85% 80%, rgba(201, 250, 100, 0.18), transparent 55%),
+    radial-gradient(circle at 15% 85%, rgba(255, 235, 160, 0.16), transparent 50%),
+    linear-gradient(180deg, #ffffff 0%, #faf8f2 100%);
+  pointer-events: none;
+}
+
+.introCardContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: clamp(24px, 4vw, 40px);
+  box-sizing: border-box;
+  gap: clamp(16px, 2.6vh, 26px);
+}
+
+.introMarkWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  margin-top: auto;
+}
+
+.introMarkWrap:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.introMarkImg {
+  display: block;
+  width: clamp(86px, 11vw, 112px);
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+}
+
+.introCardMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  max-width: 420px;
+  width: 100%;
+}
+
+.introBrandTitle {
+  font-size: clamp(34px, 5.2vw, 46px);
+  font-weight: 950;
+  letter-spacing: -0.055em;
+  line-height: 1.05;
+  color: #171713;
+  margin: 0;
+}
+
+.introTagline {
+  font-size: clamp(13px, 1.8vw, 15px);
+  line-height: 1.5;
+  color: rgba(23, 23, 19, 0.68);
+  margin: 4px 0 0;
+  word-break: keep-all;
+}
+
+.introFeatureTips {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.introHeartTip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: rgba(23, 23, 19, 0.62);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(23, 23, 19, 0.06);
+  border-radius: 999px;
+  padding: 5px 14px;
+}
+
+.introHeartTip svg {
+  color: #ff4757;
+  flex-shrink: 0;
+}
+
+.introHeartTip strong {
+  color: #171713;
+  font-weight: 750;
+}
+
+.introCardFooter {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 360px;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.introContact {
+  margin: 6px 0 0;
+  font-size: 11.5px;
+  color: rgba(23, 23, 19, 0.45);
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.introContact a {
+  color: rgba(23, 23, 19, 0.68);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.introContact a:hover {
+  color: #171713;
+}
+
+.introExploreButton {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 46px;
+  border-radius: 14px;
+  background: #c9fa64;
+  color: #171713;
+  font-size: 13.5px;
+  font-weight: 850;
+  border: none;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+
+.introExploreButton:hover {
+  background: #bbf350;
+  transform: translateY(-1px);
+}
+
+.introExploreButton:active {
+  transform: translateY(0);
+}
+
+.introExploreButton .arrow {
+  display: inline-block;
+  transition: transform 0.18s ease;
+}
+
+.introExploreButton:hover .arrow {
+  transform: translateX(3px);
+}
+
+.introSearchButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  height: 46px;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #171713;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid rgba(23, 23, 19, 0.08);
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.introSearchButton:hover {
+  background: #f6f5ee;
+  border-color: rgba(23, 23, 19, 0.22);
+  transform: translateY(-1px);
+}
+
+.railControls {
+  position: relative;
+  display: flex;
+  height: var(--bottom-row-height);
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 0;
+}
+.railControls p,
+.railCounter {
+  margin: 0;
+  font-size: 13px;
+  flex: none;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.railControls p strong,
+.railCounter strong {
+  font-size: 24px;
+}
+.railControls p span,
+.railCounter span {
+  color: rgba(23, 23, 19, 0.4);
+}
+
+.railSortBar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: stretch;
+  height: 34px;
+  gap: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px;
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+  z-index: 2;
+}
+.railSortChip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 0;
+  margin: 0;
+  font-size: 11.5px;
+  font-weight: 800;
+  color: rgba(23, 23, 19, 0.55);
+  background: transparent;
+  cursor: pointer;
+  transition: 0.16s ease;
+  line-height: 1;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.railSortChip.active,
+.railSortChip:hover {
+  color: #fff;
+  background: var(--ink);
+}
+
+.railNavButtons {
+  display: flex;
+  gap: 6px;
+  flex: none;
+}
+.railNavButton,
+.railControls button:not(.railSortChip) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  cursor: pointer;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
+  transition: 0.16s ease;
+}
+.railNavButton svg,
+.railControls button:not(.railSortChip) svg {
+  width: 17px;
+  height: 17px;
+  display: block;
+}
+.railNavButton:hover:not(:disabled),
+.railControls button:not(.railSortChip):hover:not(:disabled) {
+  color: #fff;
+  background: var(--ink);
+}
+.railNavButton:disabled,
+.railControls button:not(.railSortChip):disabled {
+  cursor: default;
+  opacity: 0.24;
+}
+.recommendationMessage {
+  margin: 12px auto 0;
+  color: rgba(23, 23, 19, 0.62);
+  font-size: 12px;
+  text-align: right;
+}
+.recommendationMessage,
+.siteFooter {
+  width: min(1180px, calc(100% - 44px));
+}
+.siteFooter {
+  display: flex;
+  height: var(--bottom-row-height);
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  gap: 2px 12px;
+  flex: none;
+  margin: 0 auto;
+  padding: 5px 0;
+  color: rgba(23, 23, 19, 0.52);
+}
+.siteFooter p {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.2;
+}
+.statusCard {
+  display: flex;
+  width: min(1180px, calc(100% - 44px));
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: var(--section-gap) auto 8px;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  padding: 40px 24px;
+  text-align: center;
+  background: hsla(0, 0%, 100%, 0.32);
+}
+.statusCard strong {
+  margin-top: 18px;
+  font-size: 22px;
+}
+.statusCard p {
+  margin: 9px 0 0;
+  color: rgba(23, 23, 19, 0.58);
+  font-size: 14px;
+}
+.statusCard small {
+  margin-top: 16px;
+  color: rgba(23, 23, 19, 0.42);
+}
+.menuEmptyState button {
+  cursor: pointer;
+  margin-top: 20px;
+  border: 0;
+  border-radius: 999px;
+  padding: 11px 16px;
+  color: #fff;
+  background: var(--ink);
+  font-size: 12px;
+  font-weight: 800;
+}
+.loader,
+.statusIcon {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--ink);
+  background: var(--green);
+  font-size: 18px;
+  font-weight: 900;
+}
+.loader {
+  border: 4px solid rgba(23, 23, 19, 0.16);
+  border-top: 4px solid var(--naver);
+  background: transparent;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
